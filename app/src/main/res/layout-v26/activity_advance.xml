@@ -4,12 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@mipmap/america"
     tools:context=".Advance">
 
     <Button
         android:id="@+id/buttonHome"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:background="@drawable/round_button_home"
         android:onClick="home"
         android:text="@string/home"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -19,11 +21,12 @@
     <Button
         android:id="@+id/buttonSubmit"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginStart="45dp"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="45dp"
         android:layout_marginBottom="8dp"
+        android:background="@drawable/round_button"
         android:onClick="submit"
         android:text="@string/submit"
         app:layout_constraintBottom_toTopOf="@+id/buttonHome"
@@ -42,7 +45,8 @@
         android:textAlignment="center"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/spinner"/>
 
     <android.support.v7.widget.GridLayout
         android:id="@+id/gridLayout2"
@@ -63,52 +67,54 @@
             android:id="@+id/imageViewAdvance0"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:contentDescription="@string/image_description"
             app:layout_column="0"
             app:layout_gravity="fill"
             app:layout_row="0"
-            app:srcCompat="@android:color/holo_blue_bright"
-            android:contentDescription="@string/image_description" />
+            app:srcCompat="@android:color/holo_blue_bright" />
 
         <ImageView
             android:id="@+id/imageViewAdvance1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:contentDescription="@string/image_description"
             app:layout_column="1"
             app:layout_gravity="fill"
             app:layout_row="0"
-            app:srcCompat="@android:color/holo_blue_light"
-            android:contentDescription="@string/image_description" />
+            app:srcCompat="@android:color/holo_blue_light" />
 
         <ImageView
             android:id="@+id/imageViewAdvance2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:contentDescription="@string/image_description"
             app:layout_column="2"
             app:layout_gravity="fill"
             app:layout_row="0"
-            app:srcCompat="@android:color/holo_green_dark"
-            android:contentDescription="@string/image_description" />
+            app:srcCompat="@android:color/holo_green_dark" />
 
         <EditText
             android:id="@+id/editTextViewAdvanceGrid0"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="@string/guess_flag_1"
+            android:inputType="text"
             app:layout_column="0"
             app:layout_gravity="fill"
             app:layout_row="1"
-            android:importantForAutofill="no"
-            android:inputType="text" />
+            tools:targetApi="o"
+            android:importantForAutofill="no" />
 
         <EditText
             android:id="@+id/editTextViewAdvanceGrid1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="@string/guess_flag_2"
+            android:inputType="text"
             app:layout_column="1"
             app:layout_gravity="fill"
             app:layout_row="1"
-            android:inputType="text"
+            tools:targetApi="o"
             android:importantForAutofill="no" />
 
         <EditText
@@ -116,22 +122,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="@string/guess_flag_3"
+            android:inputType="text"
             app:layout_column="2"
             app:layout_gravity="fill"
             app:layout_row="1"
-            android:importantForAutofill="no"
-            android:inputType="text" />
+            tools:targetApi="o"
+            android:autofillHints="no" />
 
     </android.support.v7.widget.GridLayout>
 
     <Button
         android:id="@+id/buttonNext"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginStart="45dp"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="45dp"
         android:layout_marginBottom="8dp"
+        android:background="@drawable/round_button_next"
         android:onClick="next"
         android:text="@string/next"
         app:layout_constraintBottom_toTopOf="@+id/buttonHome"
