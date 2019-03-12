@@ -7,7 +7,12 @@
     <string name="home">Home</string>
     <string name="next">Next</string>
     <string name="wrong">Wrong!</string>
-    <string name="textview">TextView</string>
     <string name="submit">Submit</string>
     <string name="guess_the_country">Guess The Country</string>
+    <string name="advance_level">Advance Level</string>
+    <string name="textview">TextView</string>
+    <string name="guess_flag_1">Guess Flag 1</string>
+    <string name="guess_flag_2">Guess Flag 2</string>
+    <string name="guess_flag_3">Guess Flag 3</string>
+
 </resources>

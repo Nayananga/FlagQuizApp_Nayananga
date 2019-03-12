@@ -10,24 +10,27 @@
         android:id="@+id/buttonHome"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:onClick="home"
         android:text="@string/home"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:onClick="home" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/buttonSubmit"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="45dp"
+        android:layout_marginTop="96dp"
         android:layout_marginEnd="45dp"
-        android:layout_marginBottom="94dp"
-        android:text="Submit"
+        android:layout_marginBottom="8dp"
+        android:onClick="submit"
+        android:text="@string/submit"
         app:layout_constraintBottom_toTopOf="@+id/buttonHome"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        android:onClick="submit"/>
+        app:layout_constraintTop_toBottomOf="@+id/gridLayout2" />
 
     <TextView
         android:id="@+id/textViewScore"
@@ -35,10 +38,98 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:text="TextView"
+        android:text="@string/textview"
         android:textAlignment="center"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.v7.widget.GridLayout
+        android:id="@+id/gridLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="8dp"
+        app:columnCount="3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewScore"
+        app:rowCount="2"
+        app:useDefaultMargins="true">
+
+        <ImageView
+            android:id="@+id/imageViewAdvance0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_column="0"
+            app:layout_gravity="fill"
+            app:layout_row="0"
+            app:srcCompat="@android:color/holo_blue_bright" />
+
+        <ImageView
+            android:id="@+id/imageViewAdvance1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_column="1"
+            app:layout_gravity="fill"
+            app:layout_row="0"
+            app:srcCompat="@android:color/holo_blue_light" />
+
+        <ImageView
+            android:id="@+id/imageViewAdvance2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_column="2"
+            app:layout_gravity="fill"
+            app:layout_row="0"
+            app:srcCompat="@android:color/holo_green_dark" />
+
+        <EditText
+            android:id="@+id/editTextViewAdvanceGrid0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/guess_flag_1"
+            app:layout_column="0"
+            app:layout_gravity="fill"
+            app:layout_row="1" />
+
+        <EditText
+            android:id="@+id/editTextViewAdvanceGrid1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/guess_flag_2"
+            app:layout_column="1"
+            app:layout_gravity="fill"
+            app:layout_row="1" />
+
+        <EditText
+            android:id="@+id/editTextViewAdvanceGrid2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/guess_flag_3"
+            app:layout_column="2"
+            app:layout_gravity="fill"
+            app:layout_row="1" />
+
+    </android.support.v7.widget.GridLayout>
+
+    <Button
+        android:id="@+id/buttonNext"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="96dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginBottom="8dp"
+        android:onClick="next"
+        android:text="@string/next"
+        app:layout_constraintBottom_toTopOf="@+id/buttonHome"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gridLayout2" />
+
 
 </android.support.constraint.ConstraintLayout>

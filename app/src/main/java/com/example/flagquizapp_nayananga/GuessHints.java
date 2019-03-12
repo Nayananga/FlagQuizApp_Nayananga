@@ -19,7 +19,6 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class GuessHints extends AppCompatActivity {
-    private String nextImage;
     private String correctAnswer;
     private StringBuilder temAnswer = new StringBuilder();
     private Button nextButton;
@@ -57,9 +56,9 @@ public class GuessHints extends AppCompatActivity {
 
     private void loadNextFlag() {
         AssetManager assets = this.getAssets();
-        nextImage = quizViewModel.getNextCountryFlag();
+        String nextImage = quizViewModel.getNextCountryFlag();
 
-        try (InputStream stream = assets.open("png250px/"+nextImage)) {
+        try (InputStream stream = assets.open("png250px/"+ nextImage)) {
             Drawable flag = Drawable.createFromStream(stream, nextImage);
             flagImageView.setImageDrawable(flag);
         } catch (IOException e) {

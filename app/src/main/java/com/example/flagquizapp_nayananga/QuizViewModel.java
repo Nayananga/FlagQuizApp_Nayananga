@@ -30,6 +30,7 @@ class QuizViewModel extends ViewModel {
     private HashMap<String,String> fileNameList;
     private List<String> filePathsList;
     private List<String> countryNameList;
+    private List<String> correctAnswerList;
     private String correctAnswer;
     private int score;
     private int totalGuesses;
@@ -298,6 +299,7 @@ class QuizViewModel extends ViewModel {
         fileNameList = new HashMap<>();
         filePathsList = new ArrayList<>();
         countryNameList = new ArrayList<>();
+        correctAnswerList = new ArrayList<>();
     }
 
     public static String getTag() {
@@ -358,18 +360,6 @@ class QuizViewModel extends ViewModel {
         this.fileNameList.clear();
     }
 
-    public List<String> getQuizCountriesList() {
-        return countryNameList;
-    }
-
-    public void setQuizCountriesList(List<String> countryNameList) {
-        this.countryNameList = countryNameList;
-    }
-
-    public void clearQuizCountriesList(){
-        this.filePathsList.clear();
-    }
-
     public String getCorrectAnswer() {
         return correctAnswer;
     }
@@ -395,14 +385,6 @@ class QuizViewModel extends ViewModel {
         this.correctAnswers = 0;
     }
 
-    public int getGuessRows() {
-        return guessRows;
-    }
-
-    public void setGuessRows(String choices) {
-        this.guessRows = Integer.parseInt(choices) / 2;
-    }
-
     public String getNextCountryFlag(){
         int randomNum = ThreadLocalRandom.current().nextInt(0, 255 + 1);
         return filePathsList.get(randomNum);
@@ -414,6 +396,10 @@ class QuizViewModel extends ViewModel {
 
     public void setCountryNameList(List<String> contryNameList) {
         this.countryNameList = contryNameList;
+    }
+
+    public void clearCountryNameList(){
+        this.filePathsList.clear();
     }
 
     public PopupWindow setPopUpWindowCorrect(View view, Context mContext) {
@@ -461,5 +447,23 @@ class QuizViewModel extends ViewModel {
         score = 0;
     }
 
+    public List<String> getCorrectAnswerList() {
+        return correctAnswerList;
+    }
+
+    public void setCorrectAnswerList(String correctAnswer) {
+        this.correctAnswerList.add(correctAnswer);
+    }
+
+    public void clearCorrectAnswersList(){
+        this.correctAnswerList.clear();
+    }
+
+    public String getNextCountryFlagRemove() {
+        int randomNum = ThreadLocalRandom.current().nextInt(0, filePathsList.size());
+        String countryFlag = filePathsList.get(randomNum);
+        filePathsList.remove(randomNum);
+        return countryFlag;
+    }
 }
 
