@@ -22,7 +22,6 @@ import java.io.InputStream;
 public class GuessTheCountry extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private int position;
-    private  double id;
     private String nextImage;
     private String country [];
     private Button nextButton;
@@ -44,7 +43,7 @@ public class GuessTheCountry extends AppCompatActivity implements AdapterView.On
         mContext = getApplicationContext();
 
         scoreBoardView = findViewById(R.id.textViewScore);
-        scoreBoardView.setText("Score " + String.valueOf(quizViewModel.getScore()));
+        scoreBoardView.setText(String.format("Score %s", String.valueOf(quizViewModel.getScore())));
         flagImageView = findViewById(R.id.flagImageView);
         Spinner spin = findViewById(R.id.spinnerGuessTheFlag);
         nextButton = findViewById(R.id.buttonNext);
@@ -79,7 +78,6 @@ public class GuessTheCountry extends AppCompatActivity implements AdapterView.On
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         this.position = position;
-        this.id = id;
     }
 
     @Override
@@ -99,7 +97,7 @@ public class GuessTheCountry extends AppCompatActivity implements AdapterView.On
             popupWindow = quizViewModel.setPopUpWindowCorrect(view, mContext);
 
             quizViewModel.updateScore(3);
-            scoreBoardView.setText("Score " + String.valueOf(quizViewModel.getScore()));
+            scoreBoardView.setText(String.format("Score %s", String.valueOf(quizViewModel.getScore())));
             
             submitButton.setVisibility(View.GONE);
             nextButton.setVisibility(View.VISIBLE);
@@ -109,7 +107,7 @@ public class GuessTheCountry extends AppCompatActivity implements AdapterView.On
         else{
 
             quizViewModel.updateScore(-1);
-            scoreBoardView.setText("Score " + String.valueOf(quizViewModel.getScore()));
+            scoreBoardView.setText(String.format("Score %s", String.valueOf(quizViewModel.getScore())));
             popupWindow = quizViewModel.setPopUpWindowWrong(view, mContext);
             submitButton.setVisibility(View.GONE);
             nextButton.setVisibility(View.VISIBLE);

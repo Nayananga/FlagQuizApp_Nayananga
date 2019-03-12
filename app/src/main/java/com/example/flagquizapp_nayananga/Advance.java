@@ -4,16 +4,12 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.graphics.drawable.Drawable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
@@ -21,6 +17,7 @@ import android.widget.Toast;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Objects;
 
 public class Advance extends AppCompatActivity {
     private Context mContext;
@@ -35,7 +32,6 @@ public class Advance extends AppCompatActivity {
     private EditText editText2;
     private Button nextButton;
     private Button submitButton;
-    private Animation animFadeOut;
     private Drawable originalDrawable;
 
     @Override
@@ -48,7 +44,7 @@ public class Advance extends AppCompatActivity {
         mContext = getApplicationContext();
 
         scoreBoardView = findViewById(R.id.textViewScore);
-        scoreBoardView.setText("Score " + String.valueOf(quizViewModel.getScore()));
+        scoreBoardView.setText(String.format("Score %s", String.valueOf(quizViewModel.getScore())));
 
         imageView0 = findViewById(R.id.imageViewAdvance0);
         loadNextFlag(imageView0);
@@ -65,9 +61,6 @@ public class Advance extends AppCompatActivity {
         nextButton = findViewById(R.id.buttonNext);
         nextButton.setVisibility(View.GONE);
         submitButton = findViewById(R.id.buttonSubmit);
-
-        animFadeOut = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fade_out);
-
 
 
     }
@@ -97,12 +90,7 @@ public class Advance extends AppCompatActivity {
         String tag = (String) imageView.getTag();
         String editTextViewText = String.valueOf(editText.getText());
         Log.d("Nayananga",String.valueOf(quizViewModel.getFileNameList().get(tag)));
-        if(quizViewModel.getFileNameList().get(tag).toLowerCase().equals(editTextViewText.toLowerCase())){
-           return true;
-        }
-        else {
-            return false;
-        }
+        return Objects.requireNonNull(quizViewModel.getFileNameList().get(tag)).toLowerCase().equals(editTextViewText.toLowerCase());
 
     }
 
@@ -150,7 +138,7 @@ public class Advance extends AppCompatActivity {
                 if(quizViewModel.getCorrectAnswers() == 3){
 
                     quizViewModel.updateScore(3-quizViewModel.getTotalGuesses());
-                    scoreBoardView.setText("Score " + String.valueOf(quizViewModel.getScore()));
+                    scoreBoardView.setText(String.format("Score %s", String.valueOf(quizViewModel.getScore())));
 
                     popupWindow = quizViewModel.setPopUpWindowCorrect(view, mContext);
 
@@ -171,7 +159,7 @@ public class Advance extends AppCompatActivity {
         }
         else{
             quizViewModel.updateScore(-1);
-            scoreBoardView.setText("Score " + String.valueOf(quizViewModel.getScore()));
+            scoreBoardView.setText(String.format("Score %s", String.valueOf(quizViewModel.getScore())));
 //            editText0.setError(quizViewModel.getFileNameList().get(quizViewModel.getCorrectAnswerList().get(0)));
 //            editText1.setError(quizViewModel.getFileNameList().get(quizViewModel.getCorrectAnswerList().get(1)));
 //            editText2.setError(quizViewModel.getFileNameList().get(quizViewModel.getCorrectAnswerList().get(2)));
@@ -196,9 +184,9 @@ public class Advance extends AppCompatActivity {
         editText1.setText("");
         editText2.setEnabled(true);
         editText2.setText("");
-        editText0.setBackgroundDrawable(originalDrawable);
-        editText1.setBackgroundDrawable(originalDrawable);
-        editText2.setBackgroundDrawable(originalDrawable);
+        editText0.setBackground(originalDrawable);
+        editText1.setBackground(originalDrawable);
+        editText2.setBackground(originalDrawable);
         nextButton.setVisibility(View.GONE);
         submitButton.setVisibility(View.VISIBLE);
     }

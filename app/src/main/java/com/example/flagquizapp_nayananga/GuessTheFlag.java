@@ -4,8 +4,8 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.graphics.drawable.Drawable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -16,7 +16,7 @@ import android.widget.Toast;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Random;
 
 public class GuessTheFlag extends AppCompatActivity {
@@ -40,7 +40,7 @@ public class GuessTheFlag extends AppCompatActivity {
         mContext = getApplicationContext();
 
         scoreBoardView = findViewById(R.id.textViewScore);
-        scoreBoardView.setText("Score " + String.valueOf(quizViewModel.getScore()));
+        scoreBoardView.setText(String.format("Score %s", String.valueOf(quizViewModel.getScore())));
 
         imageButton0 = findViewById(R.id.imageButton0);
         loadNextFlag(imageButton0);
@@ -97,16 +97,16 @@ public class GuessTheFlag extends AppCompatActivity {
     public void answerCheck(ImageButton imageButton , View view){
         String tag = (String) imageButton.getTag();
         String textViewText = (String) textViewGuessTheFlag.getText();
-        if(quizViewModel.getFileNameList().get(tag).equals(textViewText)){
+        if(Objects.equals(quizViewModel.getFileNameList().get(tag), textViewText)){
             quizViewModel.updateScore(1);
-            scoreBoardView.setText("Score " + String.valueOf(quizViewModel.getScore()));
+            scoreBoardView.setText(String.format("Score %s", String.valueOf(quizViewModel.getScore())));
 
             popupWindow = quizViewModel.setPopUpWindowCorrect(view, mContext);
             nextButton.setVisibility(View.VISIBLE);
         }
         else {
             quizViewModel.updateScore(-1);
-            scoreBoardView.setText("Score " + String.valueOf(quizViewModel.getScore()));
+            scoreBoardView.setText(String.format("Score %s", String.valueOf(quizViewModel.getScore())));
             popupWindow = quizViewModel.setPopUpWindowWrong(view, mContext);
             nextButton.setVisibility(View.VISIBLE);
         }

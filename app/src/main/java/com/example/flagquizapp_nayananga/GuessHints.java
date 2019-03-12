@@ -43,7 +43,7 @@ public class GuessHints extends AppCompatActivity {
         mContext = getApplicationContext();
 
         scoreBoardView = findViewById(R.id.textViewScore);
-        scoreBoardView.setText("Score " + String.valueOf(quizViewModel.getScore()));
+        scoreBoardView.setText(String.format("Score %s", String.valueOf(quizViewModel.getScore())));
         flagImageView = findViewById(R.id.flagImageView);
         dashToTextView = findViewById(R.id.textViewDashtoLetters);
         editTextGuessCountry = findViewById(R.id.editTextGuessCountry);
@@ -99,7 +99,7 @@ public class GuessHints extends AppCompatActivity {
                     if(correctAnswer.toLowerCase().equals(temAnswer.toString().toLowerCase())){
 
                         quizViewModel.updateScore(3);
-                        scoreBoardView.setText("Score " + String.valueOf(quizViewModel.getScore()));
+                        scoreBoardView.setText(String.format("Score %s", String.valueOf(quizViewModel.getScore())));
 
                         popupWindow = quizViewModel.setPopUpWindowCorrect(view, mContext);
 
@@ -127,7 +127,7 @@ public class GuessHints extends AppCompatActivity {
         }
         else{
             quizViewModel.updateScore(-1);
-            scoreBoardView.setText("Score " + String.valueOf(quizViewModel.getScore()));
+            scoreBoardView.setText(String.format("Score %s", String.valueOf(quizViewModel.getScore())));
             popupWindow = quizViewModel.setPopUpWindowWrong(view, mContext);
             temAnswer.setLength(0);
             submitButton.setVisibility(View.GONE);
