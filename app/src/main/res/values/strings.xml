@@ -14,5 +14,6 @@
     <string name="guess_flag_1">Guess Flag 1</string>
     <string name="guess_flag_2">Guess Flag 2</string>
     <string name="guess_flag_3">Guess Flag 3</string>
+    <string name="correct">Correct!</string>
 
 </resources>

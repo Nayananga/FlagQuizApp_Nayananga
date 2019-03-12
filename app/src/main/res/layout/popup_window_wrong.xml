@@ -20,7 +20,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="60dp"
-        android:text="TextView"
+        android:text="@string/textview"
         android:textColor="#03A9F4"/>
 
 </RelativeLayout>
