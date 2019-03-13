@@ -16,4 +16,8 @@
     <string name="guess_flag_3">Guess Flag 3</string>
     <string name="correct">Correct!</string>
 
+    <string name="title_activity_splash_screen">splash_screen</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
 </resources>

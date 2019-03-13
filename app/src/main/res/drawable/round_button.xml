@@ -5,10 +5,10 @@
         android:radius="20dp" />
 
     <solid
-        android:color="@android:color/transparent" />
+        android:color="#994CAF50" />
 
     <stroke
-        android:color="#4CAF50"
+        android:color="#030303"
         android:width="2dp" />
 
     <size

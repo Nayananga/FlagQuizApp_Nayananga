@@ -26,7 +26,7 @@
     to add dashes to your stroke-->
     <stroke
         android:width="2dp"
-        android:color="#FFFFFF" />
+        android:color= "#FFFFFF" />
 
     <!--If you want to add padding-->
     <!-- <padding
